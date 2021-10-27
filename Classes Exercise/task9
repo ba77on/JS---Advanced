@@ -1,1 +1,28 @@
 
+function autoEngineeringCompany(arr) {
+    let carBrand = new Map();
+
+
+    for (const singleLine of arr) {
+        let [brand, model, count] = singleLine.split(' | ');
+        count = Number(count);
+        if (!carBrand.has(brand)) {
+            carBrand.set(brand, new Map());
+        }
+        let carModel = carBrand.get(brand);
+        if (!carModel.has(model)) {
+            carModel.set(model, count);
+        }
+        carModel.set(model, carModel.get(model) + count);
+
+
+    }
+    for (const brand of carBrand.keys()) {
+        console.log(brand)
+        let pairs = carBrand.get(brand);
+        for (const singlePair of pairs.keys()) {
+            console.log(`###${singlePair} -> ${pairs.get(singlePair)}`)
+        }
+    }
+
+}
