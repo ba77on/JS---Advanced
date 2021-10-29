@@ -11,7 +11,7 @@ function autoEngineeringCompany(arr) {
         }
         let carModel = carBrand.get(brand);
         if (!carModel.has(model)) {
-            carModel.set(model, count);
+            carModel.set(model, 0);
         }
         carModel.set(model, carModel.get(model) + count);
 
