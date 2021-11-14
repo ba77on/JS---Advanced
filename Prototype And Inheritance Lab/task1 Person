@@ -1,1 +1,23 @@
 
+function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    Object.defineProperty(this, 'fullName', {
+        get: function () {
+            return `${this.firstName} ${this.lastName}`
+        },
+        set: function (fullName) {
+            let pattern = /((?<firstName>\w+) (?<lastName>\w+))/;
+            let matcher = fullName.match(pattern);
+
+            if (matcher) {
+                this.firstName = matcher.groups.firstName;
+                this.lastName = matcher.groups.lastName;
+            }
+        }
+
+    })
+
+
+}
