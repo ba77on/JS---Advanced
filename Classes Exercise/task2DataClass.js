@@ -9,9 +9,3 @@ class Request {
     }
 }
 
-// • method (String)
-// • uri (String)
-// • version (String)
-// • message (String)
-// • response (String) -undefined
-// // • fulfilled (Boolean) - false
